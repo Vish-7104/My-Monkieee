@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #ff1493;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: bounce 1s infinite;
+        }
+
+        .meme-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 20px;
+            margin: 1.5rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .question {
+            font-size: 1.8rem;
+            color: #333;
+            margin: 1.5rem 0;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        #yesBtn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+        }
+
+        #noBtn {
+            background: #ddd;
+            color: #666;
+            position: relative;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s infinite;
+            pointer-events: none;
+        }
+
+        .success {
+            display: none;
+        }
+
+        .success.show {
+            display: block;
+        }
+
+        .success h2 {
+            color: #ff1493;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .success p {
+            font-size: 1.3rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .gif-container {
+            margin: 1.5rem 0;
+        }
+
+        .gif-container img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 20px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff1493;
+            animation: confetti-fall 3s linear;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .question {
+                font-size: 1.4rem;
+            }
+            
+            button {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        #noBtn.shrink {
+            animation: shrink 0.5s forwards;
+        }
+
+        @keyframes shrink {
+            to {
+                transform: scale(0.8);
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+        }
+
+        .cat-meme {
+            font-size: 3rem;
+            animation: bounce 0.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="questionPage">
+            <div class="cat-meme">🥺</div>
+            <h1>Vaidehi Chetan Patil!!! 💕</h1>
+            <p class="subtitle">I've got something important to ask you...</p>
+            
+            <img src="https://i.imgflip.com/4/4t0m5.jpg" alt="Cute meme" class="meme-img" id="memeImg">
+            
+            <p class="question">Will you be my Valentine? 💖</p>
+            
+            <div class="buttons">
+                <button id="yesBtn">YES! 💝</button>
+                <button id="noBtn">No...😔</button>
+            </div>
+        </div>
+
+        <div id="successPage" class="success">
+            <h2>YESSS! 🎉💕</h2>
+            <div class="gif-container">
+                <img src="https://media.giphy.com/media/UVk5yzljef0kGiayL1/giphy.gif" alt="Celebration">
+            </div>
+            <p>Eeehehehehehe iss baat pe le pappi</p>
+            <p>UUMMMAAAAAAHHHHHHHHHHHH🥰🥰😘😘</p>
+            <P>I Love You Duniya Meh Sabse Zyaada My Cute Little Princess 🥹❤️🫶🏻✨💖</P>
+            <p>Can't wait to spend Valentine's Day with you! 💖✨</p>
+            <p style="margin-top: 1rem; font-size: 2rem;">🎊🎉💕🌹💝🎊</p>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const questionPage = document.getElementById('questionPage');
+        const successPage = document.getElementById('successPage');
+        const memeImg = document.getElementById('memeImg');
+        
+        // Meme images that rotate when "No" is clicked
+        const memes = [
+            'https://i.imgflip.com/4/4t0m5.jpg',
+            'https://i.imgflip.com/2/1bij.jpg',
+            'https://i.imgflip.com/7cp.jpg'
+        ];
+        let memeIndex = 0;
+        let noClickCount = 0;
+
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = ['❤️', '💕', '💖', '💗', '💝'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Create hearts continuously
+        setInterval(createHeart, 500);
+
+        // Make "No" button run away
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 100);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 100);
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        });
+
+        // Handle "No" button click
+        noBtn.addEventListener('click', () => {
+            noClickCount++;
+            
+            // Change meme
+            memeIndex = (memeIndex + 1) % memes.length;
+            memeImg.src = memes[memeIndex];
+            
+            // Make Yes button bigger and No button smaller
+            yesBtn.style.transform = `scale(${1 + noClickCount * 0.2})`;
+            noBtn.classList.add('shrink');
+            
+            // Change button text based on clicks
+            const noTexts = [
+                'No...',
+                'Are you sure?',
+                'Really?',
+                'Think again!',
+                'Please? 🥺',
+                'Last chance!',
+                'Pretty please?'
+            ];
+            
+            if (noClickCount < noTexts.length) {
+                noBtn.textContent = noTexts[noClickCount];
+            }
+        });
+
+        // Handle "Yes" button
+        yesBtn.addEventListener('click', () => {
+            questionPage.style.display = 'none';
+            successPage.classList.add('show');
+            
+            // Create confetti
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = ['#ff1493', '#ff69b4', '#ff6b9d', '#ffc0cb', '#red'][Math.floor(Math.random() * 5)];
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        });
+    </script>
+</body>
+</html>
